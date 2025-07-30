@@ -1,4 +1,4 @@
-package com.bankkemal.account.dto.common;
+package com.bankkemal.account.model.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

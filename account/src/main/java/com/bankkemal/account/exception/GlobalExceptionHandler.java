@@ -1,6 +1,6 @@
 package com.bankkemal.account.exception;
 
-import com.bankkemal.account.dto.common.ApiResponse;
+import com.bankkemal.account.model.common.ApiResponse;
 import com.bankkemal.account.model.common.BaseResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
