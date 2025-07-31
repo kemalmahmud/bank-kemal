@@ -28,7 +28,7 @@ public class UserService {
 
 
     public List<UserDetailResponseDto> getUsers() {
-        return userRepository.findAllByDeletedFalse().stream()
+        return userRepository.findAllByIsDeletedFalse().stream()
                 .map(user -> {
                     UserDetail detail = user.getUserDetail();
                     return UserDetailResponseDto.builder()
@@ -42,7 +42,7 @@ public class UserService {
     }
 
     public UserDetailResponseDto getUserById(UUID id) {
-        User user = userRepository.findByUserIdAndDeletedFalse(id)
+        User user = userRepository.findByUserIdAndIsDeletedFalse(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
         UserDetail detail = user.getUserDetail();

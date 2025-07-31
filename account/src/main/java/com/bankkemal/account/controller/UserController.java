@@ -8,6 +8,7 @@ import com.bankkemal.account.model.common.ApiResponse;
 import com.bankkemal.account.service.UserService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<UserDetailResponseDto>>> getAllUsers() {

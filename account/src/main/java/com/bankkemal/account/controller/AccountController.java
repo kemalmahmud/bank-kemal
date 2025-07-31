@@ -8,6 +8,7 @@ import com.bankkemal.account.model.common.BaseResponse;
 import com.bankkemal.account.service.AccountService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AccountController {
 
-    private final AccountService accountService;
+    @Autowired
+    private AccountService accountService;
 
     // CREATE
     @PostMapping
