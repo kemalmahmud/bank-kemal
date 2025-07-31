@@ -15,31 +15,31 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<ApiResponse<List<UserDetailResponseDto>>> getAllUsers() {
         List<UserDetailResponseDto> users = userService.getUsers();
         return BaseResponse.success("Users retrieved successfully", users);
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<ApiResponse<UserDetailResponseDto>> createUser(@RequestBody UserCreateRequestDto request) {
         UserDetailResponseDto result = userService.createUser(request);
         return BaseResponse.success("User created successfully", result);
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<UserDetailResponseDto>> getUserById(@PathVariable UUID id) {
         UserDetailResponseDto user = userService.getUserById(id);
         return BaseResponse.success("User retrieved successfully", user);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<UserDetailResponseDto>> updateUser(
             @PathVariable UUID id,
             @RequestBody UserEditRequestDto request
@@ -48,7 +48,7 @@ public class UserController {
         return BaseResponse.success("User updated successfully", updated);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<String>> deleteUser(@PathVariable UUID id) {
         userService.deleteUser(id);
         return BaseResponse.success("User deleted successfully", null);
